@@ -2,18 +2,21 @@ package br.com.jumarket.stock.domain.entity
 
 import br.com.jumarket.stock.domain.enummeration.Category
 import jakarta.persistence.*
+import jakarta.validation.constraints.Positive
 import java.math.BigDecimal
 import java.time.LocalDate
 
 @Entity
 data class Product(
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)val id : Long? = null,
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) var id : Long? = null,
     @Column(nullable = false) val name : String = "",
-    @Column(nullable = false) val measure : BigDecimal = BigDecimal.ZERO,
-    @Column(nullable = false) val unitPrice : BigDecimal = BigDecimal.ZERO,
+    @Column(nullable = false)
+    @Positive val measure : BigDecimal = BigDecimal.ZERO,
+    @Column(nullable = false)
+    @Positive val unitPrice : BigDecimal = BigDecimal.ZERO,
     @Column(nullable = false) val arrival : LocalDate,
     @Column(nullable = false) val dueDate : LocalDate,
-    @Enumerated val category: Category = Category.OTHER
+    @Enumerated(EnumType.STRING) val category: Category = Category.OTHER
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
