@@ -5,6 +5,7 @@ import br.com.jumarket.stock.application.dto.ProductDto
 interface IProductService {
     fun getAll() : List<ProductDto>
     fun getById(id : Long) : ProductDto
+    fun getProductByName(name : String) : List<ProductDto>
     fun create(dto : ProductDto) : ProductDto
     fun update(id : Long, dto : ProductDto) : ProductDto
     fun delete(id : Long)

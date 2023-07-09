@@ -34,6 +34,11 @@ class ProductController(
         return ResponseEntity.status(HttpStatus.OK).body(product)
     }
 
+    @GetMapping("/order/{name}")
+    fun getByName(@PathVariable @NotNull name : String) : List<ProductDto>{
+        return service.getProductByName(name)
+    }
+
     @PostMapping
     fun create(@RequestBody @Valid dto : ProductDto) : ResponseEntity<ProductDto>{
         val product = service.create(dto)
