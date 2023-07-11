@@ -4,6 +4,7 @@ CREATE TABLE product(
     measure DECIMAL NOT NULL,
     unit_price DECIMAL NOT NULL,
     arrival date NOT NULL,
+    departure date,
     due_date date NOT NULL,
     category varchar(100) NOT NULL
 );

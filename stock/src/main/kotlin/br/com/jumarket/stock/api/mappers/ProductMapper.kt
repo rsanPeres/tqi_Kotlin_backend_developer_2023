@@ -11,6 +11,7 @@ object ProductMapper : IProductMapper<Product, ProductDto> {
             product.measure,
             product.unitPrice,
             product.arrival,
+            product.departure,
             product.dueDate,
             product.category)
     }
@@ -22,6 +23,7 @@ object ProductMapper : IProductMapper<Product, ProductDto> {
             dto.measure,
             dto.unitPrice,
             dto.arrival,
+            dto.departure,
             dto.dueDate,
             dto.category)
     }

@@ -30,7 +30,7 @@ class ProductService(
         product?.let {
             return it.map { x -> ProductMapper.toDto(x) }
         }
-        return listOf(ProductDto(null, "", BigDecimal.ZERO, BigDecimal.ZERO, LocalDate.now(), LocalDate.now(), Category.OTHER))
+        return listOf(ProductDto(null, "", BigDecimal.ZERO, BigDecimal.ZERO, LocalDate.now(), LocalDate.now(), LocalDate.now(), Category.OTHER))
     }
 
     override fun create(dto : ProductDto) : ProductDto{

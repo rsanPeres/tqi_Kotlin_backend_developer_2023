@@ -12,6 +12,7 @@ data class ProductDto(
     val measure : BigDecimal = BigDecimal.ZERO,
     val unitPrice : BigDecimal = BigDecimal.ZERO,
     val arrival : LocalDate,
+    var departure : LocalDate,
     val dueDate : LocalDate,
     val category: Category = Category.OTHER
 ) {

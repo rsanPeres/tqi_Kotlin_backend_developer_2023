@@ -11,12 +11,14 @@ data class Product(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) var id : Long? = null,
     @Column(nullable = false) val name : String = "",
     @Column(nullable = false)
-    @Positive val measure : BigDecimal = BigDecimal.ZERO,
+    @Positive var measure : BigDecimal = BigDecimal.ZERO,
     @Column(nullable = false)
     @Positive val unitPrice : BigDecimal = BigDecimal.ZERO,
     @Column(nullable = false) val arrival : LocalDate,
+    @Column var departure : LocalDate,
     @Column(nullable = false) val dueDate : LocalDate,
-    @Enumerated(EnumType.STRING) val category: Category = Category.OTHER
+    @Enumerated(EnumType.STRING)
+    val category: Category = Category.OTHER
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -31,5 +33,13 @@ data class Product(
 
     override fun toString(): String {
         return "Product(id=$id, categoria=$category, nome='$name', preco=$unitPrice, quantidade=$measure, vencimento=$dueDate)"
+    }
+
+    fun removeFromStock(){
+        measure --
+    }
+
+    fun updateDeparture(){
+        departure = LocalDate.now()
     }
 }
